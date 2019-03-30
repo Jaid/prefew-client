@@ -1,10 +1,10 @@
 import React from "react"
 import ReactDom from "react-dom"
-import App from "components/App"
+import HotApp from "components/HotApp"
 import {Provider} from "react-redux"
 import {ConnectedRouter} from "connected-react-router"
 
-import {createStore, history} from "./redux/store"
+import {createStore, history} from "./redux/store/index.dev.js"
 
 const store = createStore({})
 
@@ -13,6 +13,6 @@ document.body.append(rootNode)
 
 ReactDom.render(<Provider store={store}>
   <ConnectedRouter history={history}>
-    <App/>
+    <HotApp/>
   </ConnectedRouter>
 </Provider>, rootNode)
