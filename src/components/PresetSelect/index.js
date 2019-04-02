@@ -5,6 +5,7 @@ import ReactSelect from "react-select"
 import {connect} from "react-redux"
 import immer from "immer"
 import mainActions from "mainActions"
+import {reset} from "redux-form"
 
 import css from "./style.scss"
 
@@ -65,6 +66,7 @@ const mapDispatchToProps = dispatch => ({
       type: "@@socket/send/setPreset",
       payload: value,
     })
+    dispatch(reset("presetOptions"))
   },
 })
 

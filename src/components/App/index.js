@@ -6,6 +6,8 @@ import ImageSelect from "components/ImageSelect"
 import PresetSelect from "components/PresetSelect"
 import PresetOptions from "components/PresetOptions"
 import classnames from "classnames"
+import {mapValues} from "lodash"
+import mainActions from "mainActions"
 
 import css from "./style.scss"
 
@@ -15,7 +17,10 @@ class App extends React.Component {
     buffer: PropTypes.string,
     optionsMeta: PropTypes.object,
     dispatch: PropTypes.func.isRequired,
+    onPresetOptionsChange: PropTypes.func.isRequired,
     mode: PropTypes.string,
+    selectedPreset: PropTypes.string,
+    selectedImage: PropTypes.string,
   }
 
   render() {
@@ -25,7 +30,7 @@ class App extends React.Component {
       controls = <div className={css.controls}>
         <ImageSelect className={css.control}/>
         <PresetSelect className={css.control}/>
-        {presetOptionsScheme ? <PresetOptions scheme={presetOptionsScheme}/> : "This preset is not configurable"}
+        {presetOptionsScheme ? <PresetOptions onChange={this.props.onPresetOptionsChange} initialValues={mapValues(presetOptionsScheme, properties => properties.default)} scheme={presetOptionsScheme}/> : "This preset is not configurable"}
       </div>
     }
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
@@ -44,4 +49,11 @@ const mapStateToProps = state => ({
   selectedImage: state.main.selectedImage,
 })
 
-export default connect(mapStateToProps)(App)
+const mapDispatchToProps = dispatch => ({
+  onPresetOptionsChange: values => dispatch({
+    type: "@@socket/send/setPresetOptions",
+    payload: values,
+  }),
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

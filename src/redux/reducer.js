@@ -1,6 +1,7 @@
 import immer from "immer"
 import {omit} from "lodash"
 import {combineReducers} from "redux"
+import {reducer as formReducer} from "redux-form"
 
 import {socketReducer} from "./socket"
 
@@ -44,4 +45,5 @@ const mainReducer = (state, action) => {
 export default combineReducers({
   main: mainReducer,
   socket: socketReducer,
+  form: formReducer,
 })

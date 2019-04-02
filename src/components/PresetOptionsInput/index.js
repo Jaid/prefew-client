@@ -1,7 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
-import {Field} from "formik"
+import {Field} from "redux-form"
 
 import css from "./style.scss"
 
@@ -9,17 +9,18 @@ export default class PresetOptionsInput extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
     properties: PropTypes.object.isRequired,
     value: PropTypes.any,
   }
 
   render() {
-    const {type, name} = this.props.properties
+    const {type} = this.props.properties
     const fieldProps = {
       type,
+      component: "input",
       className: css.field,
-      name: this.props.id,
+      name: this.props.name,
       value: this.props.value,
     }
     if (this.props.properties.min) {
@@ -29,7 +30,7 @@ export default class PresetOptionsInput extends React.Component {
       fieldProps.max = this.props.properties.max
     }
     return <div className={classnames(css.container, this.props.className)}>
-      <div className={css.title}>{this.props.id}</div>
+      <div className={css.title}>{this.props.name}</div>
       <Field {...fieldProps}/>
     </div>
     // if (this.props.info) {
