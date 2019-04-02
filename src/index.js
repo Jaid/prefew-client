@@ -2,10 +2,14 @@ import React from "react"
 import ReactDom from "react-dom"
 import App from "components/App"
 import {Provider} from "react-redux"
+import {createStore, applyMiddleware} from "redux"
+import thunk from "redux-thunk"
 
-import {createStore} from "./redux"
+import socketMiddleware from "./socket"
+import reducer from "./reducer"
 
-const store = createStore({})
+const enhancer = applyMiddleware(thunk, socketMiddleware)
+const store = createStore(reducer, enhancer)
 
 const rootNode = document.createElement("div")
 document.body.append(rootNode)

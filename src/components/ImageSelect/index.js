@@ -11,6 +11,8 @@ class ImageSelect extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
+    options: PropTypes.object.isRequired,
+    onChange: PropTypes.func.isRequired,
   }
 
   render() {
@@ -44,18 +46,19 @@ class ImageSelect extends React.Component {
         color: "lightgray",
       }),
     }
-    return <ReactSelect onChange={this.props.onChange} options={selectOptions} styles={style} />
+    return <ReactSelect className={this.props.className} onChange={this.props.onChange} options={selectOptions} styles={style}/>
   }
 
 }
 
-const mapStateToProps = state => ({
-  options: state.options?.images,
+const mapStateToProps = ({main}) => ({
+  options: main.options?.images,
 })
 
 const mapDispatchToProps = dispatch => ({
-  onChange: image => dispatch({
-    type: "",
+  onChange: ({value}) => dispatch({
+    type: "@@socket/send/setImage",
+    payload: value,
   }),
 })
 

@@ -1,19 +1,47 @@
 import immer from "immer"
 import {omit} from "lodash"
+import {combineReducers} from "redux"
 
-export default (state, action) => {
+import {socketReducer} from "./socket"
+
+const mainReducer = (state, action) => {
   if (!state) {
     return {}
   }
-  if (action.type === "newPreview") {
+  if (action.type === "@@main/newPreview") {
     return immer(state, draft => {
-      draft.preview = omit(action, "type")
+      draft.preview = action.payload
     })
   }
-  if (action.type === "setOptions") {
+  if (action.type === "@@main/setMode") {
     return immer(state, draft => {
-      draft.options = omit(action, "type")
+      draft.mode = action.payload
+    })
+  }
+  if (action.type === "@@main/setOptions") {
+    return immer(state, draft => {
+      draft.options = action.payload
+    })
+  }
+  if (action.type === "@@main/setPreset") {
+    return immer(state, draft => {
+      draft.selectedPreset = action.payload
+    })
+  }
+  if (action.type === "@@main/setImage") {
+    return immer(state, draft => {
+      draft.selectedImage = action.payload
+    })
+  }
+  if (action.type === "@@main/setPresetOptions") {
+    return immer(state, draft => {
+      draft.presetOptions = action.payload
     })
   }
   return state
 }
+
+export default combineReducers({
+  main: mainReducer,
+  socket: socketReducer,
+})

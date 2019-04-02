@@ -11,6 +11,6 @@ module.exports = {
     "^src": "<rootDir>/src",
     "^lib": "<rootDir>/src/lib",
     "^components": "<rootDir>/src/components",
-    "^actions": "<rootDir>/src/redux/actions",
+    "^mainActions$": "<rootDir>/src/redux/mainActions",
   },
 }
