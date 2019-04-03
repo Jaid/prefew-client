@@ -4,7 +4,6 @@ import classnames from "classnames"
 import PresetOptionsInput from "components/PresetOptionsInput"
 import {mapValues} from "lodash"
 import {connect} from "react-redux"
-import {reduxForm} from "redux-form"
 
 import css from "./style.scss"
 
