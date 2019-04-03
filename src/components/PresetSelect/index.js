@@ -10,19 +10,16 @@ export default class PresetSelect extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    input: PropTypes.object.isRequired,
-    meta: PropTypes.object.isRequired,
+    fields: PropTypes.object.isRequired,
     scheme: PropTypes.object.isRequired,
   }
 
   render() {
-    const {value, onChange} = this.props.input
-
     const options = Object.entries(this.props.scheme).map(([name, properties]) => {
       return <Option key={name}>{properties.name}</Option>
     })
 
-    return <RcSelect value={value} className={this.props.className} onSelect={onChange}>
+    return <RcSelect value="" placeholder="Add preset" className={this.props.className} onSelect={name => this.props.fields.push({name})}>
       {options}
     </RcSelect>
   }

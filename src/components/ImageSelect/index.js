@@ -1,32 +1,29 @@
 import React from "react"
 import PropTypes from "prop-types"
-import classnames from "classnames"
 import {connect} from "react-redux"
-import immer from "immer"
 import RcSelect, {Option} from "rc-select"
+import classnames from "classnames"
 
 import css from "./style.scss"
 
 @connect(({main}) => ({
-  options: main.options?.images,
-}), dispatch => ({
-  onChange: ({value}) => dispatch({
-    type: "@@socket/send/setImage",
-    payload: value,
-  }),
+  images: main.options.images,
 }))
 export default class ImageSelect extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    options: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired,
+    images: PropTypes.object.isRequired,
+    input: PropTypes.object.isRequired,
   }
 
   render() {
-    return <RcSelect className={this.props.className} onSelect={this.props.onChange}>
-      {Object.values(this.props.options).map(image => <Option key={image.name}>{image.name}</Option>)}
-    </RcSelect>
+    return <div className={classnames(this.props.className, css.container)}>
+    Select image
+      <RcSelect className={css.input} onSelect={this.props.input.onChange}>
+        {Object.values(this.props.images).map(image => <Option key={image.name}>{image.name}</Option>)}
+      </RcSelect>
+    </div>
   }
 
 }

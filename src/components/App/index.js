@@ -9,6 +9,10 @@ import mainActions from "mainActions"
 
 import "rc-select/assets/index.css"
 import "./rc-select.scss"
+
+import "rc-input-number/assets/index.css"
+import "./rc-input-number.scss"
+
 import css from "./style.scss"
 
 @connect(({main}) => ({

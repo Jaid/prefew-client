@@ -1,18 +1,12 @@
 @import url("modern-normalize");
 
 body {
-  background: transparent;
   color: #DCDDDE;
+  background: #1e1e1e;
 }
 
 .container {
-  height: 100vh;
-  &.mode-user {
-    background: #1e1e1e;
-  }
-  &.mode-mirror {
-    background: transparent;
-  }
+
 }
 
 .controls {
