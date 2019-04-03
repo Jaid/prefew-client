@@ -11,7 +11,7 @@ const mainReducer = (state, action) => {
   }
   if (action.type === "@@main/newPreview") {
     return immer(state, draft => {
-      draft.preview = action.payload
+      draft.previews = action.payload
     })
   }
   if (action.type === "@@main/setMode") {

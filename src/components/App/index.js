@@ -16,7 +16,7 @@ import "./rc-input-number.scss"
 import css from "./style.scss"
 
 @connect(({main}) => ({
-  buffer: main.preview?.buffer,
+  previewData: main.previews,
   mode: main.mode,
   optionsMeta: main.options,
   selectedPreset: main.selectedPreset,
@@ -30,7 +30,7 @@ import css from "./style.scss"
 export default class App extends React.Component {
 
   static propTypes = {
-    buffer: PropTypes.string,
+    previewData: PropTypes.array,
     optionsMeta: PropTypes.object,
     onControlsChange: PropTypes.func.isRequired,
     mode: PropTypes.string,
@@ -38,9 +38,14 @@ export default class App extends React.Component {
     selectedImage: PropTypes.string,
   }
 
+  static defaultProps = {
+    previewData: [],
+  }
+
   render() {
+    const previews = this.props.previewData.map(preview => <Preview {...preview}/>)
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
-      <Preview buffer={this.props.buffer}/>
+      <div className={css.previews}>{previews}</div>
       {this.props.optionsMeta && this.props.mode === "user" && <Controls onChange={this.props.onControlsChange} className={css.controls} scheme={this.props.optionsMeta}/>}
     </div>
   }

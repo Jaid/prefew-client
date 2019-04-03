@@ -6,11 +6,19 @@ body {
 }
 
 .container {
+  display: flex;
+}
 
+.previews {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
 }
 
 .controls {
-  float: right;
+  width: 200px;
 }
 
 .control {

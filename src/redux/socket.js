@@ -1,5 +1,4 @@
 import socketIoClient from "socket.io-client"
-import {encode} from "base64-arraybuffer-es6"
 import immer from "immer"
 import {pick} from "lodash"
 import mainActions from "mainActions"
@@ -14,11 +13,7 @@ const socketClient = socketIoClient(`localhost:${port}`)
 const mapDispatchToSocket = dispatch => ({
   hey: payload => dispatch(mainActions.setOptions(pick(payload, "images", "presets"))),
   newPreview: payload => {
-    dispatch(mainActions.newPreview({
-      image: payload.image,
-      preset: payload.preset,
-      buffer: payload.buffer |> encode,
-    }))
+    dispatch(mainActions.newPreview(payload))
   },
 })
 
