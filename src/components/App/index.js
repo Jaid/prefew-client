@@ -11,7 +11,19 @@ import "rc-select/assets/index.css"
 import "./rc-select.scss"
 import css from "./style.scss"
 
-class App extends React.Component {
+@connect(({main}) => ({
+  buffer: main.preview?.buffer,
+  mode: main.mode,
+  optionsMeta: main.options,
+  selectedPreset: main.selectedPreset,
+  selectedImage: main.selectedImage,
+}), dispatch => ({
+  onControlsChange: values => dispatch({
+    type: "@@socket/send/setOptions",
+    payload: values,
+  }),
+}))
+export default class App extends React.Component {
 
   static propTypes = {
     buffer: PropTypes.string,
@@ -30,20 +42,3 @@ class App extends React.Component {
   }
 
 }
-
-const mapStateToProps = state => ({
-  buffer: state.main.preview?.buffer,
-  mode: state.main.mode,
-  optionsMeta: state.main.options,
-  selectedPreset: state.main.selectedPreset,
-  selectedImage: state.main.selectedImage,
-})
-
-const mapDispatchToProps = dispatch => ({
-  onControlsChange: values => dispatch({
-    type: "@@socket/send/setOptions",
-    payload: values,
-  }),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(App)

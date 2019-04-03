@@ -3,7 +3,6 @@ import PropTypes from "prop-types"
 import classnames from "classnames"
 import PresetOptionsInput from "components/PresetOptionsInput"
 import {mapValues} from "lodash"
-import {connect} from "react-redux"
 
 import css from "./style.scss"
 
@@ -51,8 +50,3 @@ class PresetOptions extends React.Component {
 // })
 
 // export default connect(mapStateToProps, mapDispatchToProps)(PresetOptions)
-
-export default reduxForm({
-  form: "presetOptions",
-  enableReinitialize: true,
-})(PresetOptions)

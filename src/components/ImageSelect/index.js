@@ -5,10 +5,17 @@ import {connect} from "react-redux"
 import immer from "immer"
 import RcSelect, {Option} from "rc-select"
 
-
 import css from "./style.scss"
 
-class ImageSelect extends React.Component {
+@connect(({main}) => ({
+  options: main.options?.images,
+}), dispatch => ({
+  onChange: ({value}) => dispatch({
+    type: "@@socket/send/setImage",
+    payload: value,
+  }),
+}))
+export default class ImageSelect extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
@@ -17,29 +24,9 @@ class ImageSelect extends React.Component {
   }
 
   render() {
-    if (!this.props.options) {
-      return null
-    }
-    const selectOptions = (image => ({
-      value: image.name,
-      label: image.name,
-    }))
     return <RcSelect className={this.props.className} onSelect={this.props.onChange}>
       {Object.values(this.props.options).map(image => <Option key={image.name}>{image.name}</Option>)}
     </RcSelect>
   }
 
 }
-
-const mapStateToProps = ({main}) => ({
-  options: main.options?.images,
-})
-
-const mapDispatchToProps = dispatch => ({
-  onChange: ({value}) => dispatch({
-    type: "@@socket/send/setImage",
-    payload: value,
-  }),
-})
-
-export default connect(mapStateToProps, mapDispatchToProps)(ImageSelect)

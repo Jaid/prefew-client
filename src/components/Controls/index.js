@@ -9,7 +9,11 @@ import {reduxForm, FieldArray} from "redux-form"
 
 import css from "./style.scss"
 
-class Controls extends React.Component {
+@reduxForm({
+  form: "controls",
+  enableReinitialize: true,
+})
+export default class Controls extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
@@ -32,8 +36,3 @@ class Controls extends React.Component {
   // {presetOptionsScheme ? <PresetOptions onChange={this.props.onPresetOptionsChange} initialValues={mapValues(presetOptionsScheme, properties => properties.default)} scheme={presetOptionsScheme}/> : "This preset is not configurable"}
 
 }
-
-export default reduxForm({
-  form: "controls",
-  enableReinitialize: true,
-})(Controls)
