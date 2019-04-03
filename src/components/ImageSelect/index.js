@@ -25,10 +25,6 @@ class ImageSelect extends React.Component {
     }))
     console.log(selectOptions)
     const style = {
-      container: baseStyle => ({
-        ...baseStyle,
-        width: "300px",
-      }),
       control: baseStyle => ({
         ...baseStyle,
         background: "transparent",

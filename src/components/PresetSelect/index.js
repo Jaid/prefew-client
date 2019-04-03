@@ -28,10 +28,6 @@ class PresetSelect extends React.Component {
     }))
     const selectedOption = selectOptions.find(selectOption => selectOption.value === this.props.value)
     const style = {
-      container: baseStyle => ({
-        ...baseStyle,
-        width: "300px",
-      }),
       control: baseStyle => ({
         ...baseStyle,
         background: "transparent",
