@@ -37,8 +37,8 @@ export default class PresetOption extends React.Component {
     }
 
     return <div className={classnames(css.container, this.props.className)}>
-      <div className={css.optionName}>{this.props.optionName}</div>
-      <div className={css.inputContainer}>{input}</div>
+      <div className={classnames(css.optionName, css[`optionName-${this.props.type}`])}>{this.props.optionName}</div>
+      <div className={classnames(css.inputContainer, css[`inputContainer-${this.props.type}`])}>{input}</div>
     </div>
   }
 

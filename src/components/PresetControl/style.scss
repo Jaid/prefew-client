@@ -22,4 +22,8 @@
   position: relative;
   right: -5px;
   bottom: 5px;
+  &:hover {
+    color: white;
+    border-color: white;
+  }
 }

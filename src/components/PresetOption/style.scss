@@ -1,7 +1,19 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  margin-bottom: 6px;
+  &:hover > .optionName {
+    color: rgb(85, 158, 255);
+    transition: none;
+  }
+}
+
 .optionName {
-  margin-bottom: 4px;
+  user-select: none;
+  transition: color 0.5s;
 }
 
 .inputContainer {
-  margin-bottom: 10px;
 }
