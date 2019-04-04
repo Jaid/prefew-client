@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 import immer from "immer"
+import {mapValues} from "lodash"
 import RcSelect, {Option} from "rc-select"
 
 import css from "./style.scss"
@@ -19,7 +20,13 @@ export default class PresetSelect extends React.Component {
       return <Option key={name}>{properties.name}</Option>
     })
 
-    return <RcSelect value="" placeholder="Add preset" className={this.props.className} onSelect={name => this.props.fields.push({name})}>
+    return <RcSelect value=""
+      placeholder="Add preset"
+      className={this.props.className}
+      onSelect={name => this.props.fields.push({
+        name,
+        options: mapValues(this.props.scheme[name].options, ({defaultValue}) => defaultValue),
+      })}>
       {options}
     </RcSelect>
   }
