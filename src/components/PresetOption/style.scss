@@ -4,7 +4,8 @@
   justify-content: space-between;
   margin-top: 6px;
   margin-bottom: 6px;
-  &:hover > .optionName {
+
+  &:hover>.optionName {
     color: rgb(85, 158, 255);
     transition: none;
   }
@@ -15,5 +16,4 @@
   transition: color 0.5s;
 }
 
-.inputContainer {
-}
+.inputContainer {}

@@ -10,13 +10,11 @@ export default class Preview extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     buffer: PropTypes.object.isRequired,
+    presetName: PropTypes.string.isRequired,
   }
 
   render() {
-    if (!this.props.buffer) {
-      return null
-    }
-    return <img className={classnames(css.image, this.props.className)} src={`data:image/webp;base64,${this.props.buffer |> encode}`}/>
+    return <img className={classnames(css.image, css[`preset-${this.props.presetName}`], this.props.className)} src={`data:image/webp;base64,${this.props.buffer |> encode}`}/>
   }
 
 }

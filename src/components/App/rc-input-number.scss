@@ -5,13 +5,17 @@ $background: rgb(53, 53, 53);
   .rc-input-number {
     background: $background;
   }
+
   .rc-input-number-input {
     background: none;
     color: $color;
   }
-  .rc-input-number-handler-up-inner, .rc-input-number-handler-down-inner  {
+
+  .rc-input-number-handler-up-inner,
+  .rc-input-number-handler-down-inner {
     color: $color;
   }
+
   .rc-input-number-handler {
     line-height: 9px;
   }
