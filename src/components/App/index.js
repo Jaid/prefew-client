@@ -15,12 +15,13 @@ import "./rc-input-number.scss"
 
 import css from "./style.scss"
 
-@connect(({main}) => ({
+@connect(({main, socket}) => ({
   previewData: main.previews,
   mode: main.mode,
   optionsMeta: main.options,
   selectedPreset: main.selectedPreset,
   selectedImage: main.selectedImage,
+  connectionStatus: socket.status,
 }), dispatch => ({
   onControlsChange: values => dispatch({
     type: "@@socket/send/setOptions",
@@ -36,6 +37,7 @@ export default class App extends React.Component {
     mode: PropTypes.string,
     selectedPreset: PropTypes.string,
     selectedImage: PropTypes.string,
+    connectionStatus: PropTypes.string.isRequired,
   }
 
   static defaultProps = {
@@ -43,6 +45,9 @@ export default class App extends React.Component {
   }
 
   render() {
+    if (this.props.connectionStatus !== "connected") {
+      return "Not connected."
+    }
     const previews = this.props.previewData.map(preview => <Preview {...preview}/>)
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
       <div className={css.previews}>{previews}</div>

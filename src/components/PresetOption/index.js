@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
 import NumberInput from "rc-input-number"
+import Switch from "react-switch"
 
 import css from "./style.scss"
 
@@ -28,7 +29,9 @@ export default class PresetOption extends React.Component {
         precision: 0,
         ...this.props.optionProperties,
       }
-      input = <NumberInput defaultValue={this.props.defaultValue} {...inputProps} name={this.props.input.name} onChange={this.props.input.onChange}/>
+      input = <NumberInput defaultValue={this.props.defaultValue} {...inputProps} name={this.props.input.name} onChange={value => this.props.input.onChange(value)}/>
+    } else if (this.props.type === "boolean") {
+      input = <Switch onChange={value => this.props.input.onChange(value)} checked={this.props.input.value}/>
     } else {
       input = <input defaultValue={this.props.defaultValue} type="text"/>
     }
