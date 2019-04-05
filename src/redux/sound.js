@@ -3,7 +3,7 @@ import {Howl} from "howler"
 
 const startingRenderSound = new Howl({
   src: require("src/sounds/startingRender.ogg"),
-  volume: 0.1,
+  volume: 0.05,
 })
 
 const renderSound = new Howl({
