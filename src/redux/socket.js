@@ -15,6 +15,9 @@ const mapDispatchToSocket = dispatch => ({
   newPreview: payload => {
     dispatch(mainActions.newPreview(payload))
   },
+  startingRender: () => dispatch({
+    type: "@@sound/play/startingRender",
+  }),
 })
 
 export const socketReducer = (state, action) => {

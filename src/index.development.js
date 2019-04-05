@@ -7,6 +7,7 @@ import thunk from "redux-thunk"
 import {createLogger} from "redux-logger"
 import {composeWithDevTools} from "redux-devtools-extension"
 
+import soundMiddleware from "./redux/sound"
 import socketMiddleware from "./redux/socket"
 import reducer from "./redux/reducer"
 
@@ -14,7 +15,7 @@ const logger = createLogger({
   level: "info",
   collapsed: true,
 })
-const enhancer = composeWithDevTools(applyMiddleware(thunk, socketMiddleware, logger))
+const enhancer = composeWithDevTools(applyMiddleware(thunk, socketMiddleware, soundMiddleware, logger))
 const store = createStore(reducer, enhancer)
 if (module.hot) {
   module.hot.accept("./redux/reducer", () => store.replaceReducer(require("./redux/reducer").default))

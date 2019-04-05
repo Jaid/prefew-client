@@ -5,10 +5,11 @@ import {Provider} from "react-redux"
 import {createStore, applyMiddleware} from "redux"
 import thunk from "redux-thunk"
 
-import socketMiddleware from "./socket"
-import reducer from "./reducer"
+import soundMiddleware from "./redux/sound"
+import socketMiddleware from "./redux/socket"
+import reducer from "./redux/reducer"
 
-const enhancer = applyMiddleware(thunk, socketMiddleware)
+const enhancer = applyMiddleware(thunk, socketMiddleware, soundMiddleware)
 const store = createStore(reducer, enhancer)
 
 const rootNode = document.createElement("div")
