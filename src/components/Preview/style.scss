@@ -2,8 +2,12 @@
   width: 80%;
 }
 
+.container {
+  display: contents;
+}
+
 .animated>.image {
-  animation-duration: 0.5s;
+  animation-duration: 0.4s;
   animation-timing-function: ease-in-out;
   animation-name: wiggle;
 }
@@ -16,11 +20,11 @@
   }
 
   20% {
-    transform: rotate(20deg);
+    transform: rotate(30deg);
   }
 
   40% {
-    transform: rotate(-20deg);
+    transform: rotate(-25deg);
   }
 
   60% {
@@ -28,7 +32,7 @@
   }
 
   80% {
-    transform: rotate(-20deg);
+    transform: rotate(-15deg);
   }
 
 }

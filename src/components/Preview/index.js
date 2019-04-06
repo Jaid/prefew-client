@@ -42,7 +42,7 @@ export default class Preview extends React.Component {
   }
 
   render() {
-    return <div ref={this.ref}>
+    return <div ref={this.ref} className={classnames(css.container, css.animated)}>
       <img className={classnames(css.image, css[`preset-${this.props.presetName}`], this.props.className)} src={`data:image/webp;base64,${this.props.buffer |> encode}`}/>
     </div>
   }
