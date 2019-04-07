@@ -2,13 +2,18 @@ import socketIoClient from "socket.io-client"
 import immer from "immer"
 import {pick} from "lodash"
 import mainActions from "mainActions"
-import {parse} from "query-string"
+import query from "src/query"
 
 const port = 40666
 const sendPrefix = "@@socket/send/"
 // const receivePrefix = "@@socket/received/"
 const connectEvent = "@@socket/connected"
-const socketClient = socketIoClient(`localhost:${port}`)
+
+const socketClient = socketIoClient(`localhost:${port}`, {
+  query: {
+    mode: query.mode,
+  },
+})
 
 const mapDispatchToSocket = dispatch => ({
   hey: payload => dispatch(mainActions.setOptions(pick(payload, "images", "presets"))),
@@ -40,17 +45,8 @@ export const socketReducer = (state, action) => {
 
 export default store => {
   socketClient.on("connect", () => {
-    const mode = parse(document.location.search)?.mode || "user"
     store.dispatch({
       type: connectEvent,
-    })
-    store.dispatch({
-      type: "@@main/setMode",
-      payload: mode,
-    })
-    store.dispatch({
-      type: "@@socket/send/setMode",
-      payload: mode,
     })
     for (const [eventName, eventHandler] of mapDispatchToSocket(store.dispatch) |> Object.entries) {
       socketClient.on(eventName, eventHandler)

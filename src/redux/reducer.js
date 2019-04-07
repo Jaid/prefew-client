@@ -1,22 +1,19 @@
 import immer from "immer"
-import {omit} from "lodash"
 import {combineReducers} from "redux"
 import {reducer as formReducer} from "redux-form"
+import query from "src/query"
 
 import {socketReducer} from "./socket"
 
 const mainReducer = (state, action) => {
   if (!state) {
-    return {}
+    return {
+      mode: query.mode,
+    }
   }
   if (action.type === "@@main/newPreview") {
     return immer(state, draft => {
       draft.previews = action.payload
-    })
-  }
-  if (action.type === "@@main/setMode") {
-    return immer(state, draft => {
-      draft.mode = action.payload
     })
   }
   if (action.type === "@@main/setOptions") {
