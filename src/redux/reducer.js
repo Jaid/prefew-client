@@ -36,6 +36,12 @@ const mainReducer = (state, action) => {
       draft.presetOptions = action.payload
     })
   }
+  if (action.type === "@@main/imageAdded") {
+    return immer(state, draft => {
+      const {name, ...properties} = action.payload
+      draft.options.images[name] = properties
+    })
+  }
   return state
 }
 

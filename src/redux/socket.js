@@ -25,6 +25,9 @@ const mapDispatchToSocket = dispatch => ({
   startingRender: () => dispatch({
     type: "@@sound/play/startingRender",
   }),
+  imageAdded: payload => {
+    dispatch(mainActions.imageAdded(payload))
+  },
 })
 
 export const socketReducer = (state, action) => {
@@ -50,11 +53,13 @@ export default store => {
     store.dispatch({
       type: connectEvent,
     })
+  })
+  socketClient.once("connect", () => {
+    store.dispatch({
+      type: connectEvent,
+    })
     for (const [eventName, eventHandler] of mapDispatchToSocket(store.dispatch) |> Object.entries) {
-      socketClient.on(eventName, payload => {
-        console.log(eventName, payload)
-        return eventHandler(payload)
-      })
+      socketClient.on(eventName, eventHandler)
     }
   })
   return next => action => {
