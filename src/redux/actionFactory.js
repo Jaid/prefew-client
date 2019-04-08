@@ -9,7 +9,7 @@ export default (namespace, actionMap) => mapValues(actionMap, (value, key) => {
     })
   }
   return payload => ({
-    payload,
     type,
+    payload,
   })
 })

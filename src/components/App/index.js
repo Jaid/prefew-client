@@ -48,10 +48,13 @@ export default class App extends React.Component {
     if (this.props.connectionStatus !== "connected") {
       return "Not connected."
     }
+    if (!this.props.optionsMeta && this.props.mode === "user") {
+      return "Waiting for options."
+    }
     const previews = this.props.previewData.map(preview => <Preview mode={this.props.mode} {...preview}/>)
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
       <div className={css.previews}>{previews}</div>
-      {this.props.optionsMeta && this.props.mode === "user" && <Controls onChange={this.props.onControlsChange} className={css.controls} scheme={this.props.optionsMeta}/>}
+      {this.props.mode === "user" && <Controls onChange={this.props.onControlsChange} className={css.controls} scheme={this.props.optionsMeta}/>}
     </div>
   }
 

@@ -16,7 +16,9 @@ const socketClient = socketIoClient(`localhost:${port}`, {
 })
 
 const mapDispatchToSocket = dispatch => ({
-  hey: payload => dispatch(mainActions.setOptions(pick(payload, "images", "presets"))),
+  hey: payload => {
+    dispatch(mainActions.setOptions(payload))
+  },
   newPreview: payload => {
     dispatch(mainActions.newPreview(payload))
   },
@@ -49,7 +51,10 @@ export default store => {
       type: connectEvent,
     })
     for (const [eventName, eventHandler] of mapDispatchToSocket(store.dispatch) |> Object.entries) {
-      socketClient.on(eventName, eventHandler)
+      socketClient.on(eventName, payload => {
+        console.log(eventName, payload)
+        return eventHandler(payload)
+      })
     }
   })
   return next => action => {
