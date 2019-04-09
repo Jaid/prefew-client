@@ -17,7 +17,7 @@ export default class PresetSelect extends React.Component {
 
   render() {
     const options = Object.entries(this.props.scheme).map(([name, properties]) => {
-      return <Option key={name}>{properties.name}</Option>
+      return <Option key={name}>{properties.title}</Option>
     })
 
     return <RcSelect value=""

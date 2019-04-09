@@ -19,8 +19,6 @@ export default class ImageSelect extends React.Component {
   }
 
   render() {
-    console.log(this.props.images)
-
     const options = Object.entries(this.props.images).map(([name, image]) => {
       let optionIcon
       if (image.thumbnail) {

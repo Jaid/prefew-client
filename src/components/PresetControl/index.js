@@ -23,8 +23,9 @@ export default class PresetControl extends React.Component {
     const presetName = value.name
     const preset = this.props.scheme[presetName]
     let optionFields
-    if (preset.options) {
-      optionFields = Object.entries(preset.options).map(([name, properties]) => {
+
+    if (preset.optionsSchema) {
+      optionFields = Object.entries(preset.optionsSchema).map(([name, properties]) => {
         const inputName = `${this.props.formKey}.options.${name}`
         const {type, defaultValue, ...optionProperties} = properties
         return <Field name={inputName} key={inputName} preset={preset} component={PresetOption} type={type} defaultValue={defaultValue} optionProperties={optionProperties} optionName={name}/>
