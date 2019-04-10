@@ -1,9 +1,7 @@
 import React from "react"
 import PropTypes from "prop-types"
 import classnames from "classnames"
-import RcSelect, {Option} from "rc-select"
 import {Field} from "redux-form"
-import PresetSelect from "components/PresetSelect"
 import PresetOption from "components/PresetOption"
 
 import css from "./style.scss"

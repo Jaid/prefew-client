@@ -1,10 +1,8 @@
 import React from "react"
 import PropTypes from "prop-types"
-import classnames from "classnames"
 import {connect} from "react-redux"
 import {formValueSelector} from "redux-form"
 import {isEmpty} from "lodash"
-import mainActions from "mainActions"
 
 import css from "./style.scss"
 
@@ -24,6 +22,7 @@ export default class ExportButton extends React.Component {
     className: PropTypes.string,
     presets: PropTypes.array,
     image: PropTypes.string,
+    export: PropTypes.func.isRequired,
   }
 
   render() {
