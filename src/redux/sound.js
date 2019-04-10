@@ -3,12 +3,12 @@ import {Howl} from "howler"
 
 const startingRenderSound = new Howl({
   src: require("src/sounds/startingRender.ogg"),
-  volume: 0.05,
+  volume: 0.02,
 })
 
 const renderSound = new Howl({
   src: require("src/sounds/updatePreviews.ogg"),
-  volume: 0.1,
+  volume: 0.05,
 })
 
 export default store => next => action => {

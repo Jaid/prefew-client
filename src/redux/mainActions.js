@@ -7,4 +7,5 @@ export default actionFactory("main", {
   setPreset: true,
   setPresetOptions: true,
   imageAdded: true,
+  export: true,
 })
