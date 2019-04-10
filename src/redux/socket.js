@@ -25,6 +25,9 @@ const mapDispatchToSocket = dispatch => ({
   startingRender: () => dispatch({
     type: "@@sound/play/startingRender",
   }),
+  exportFinished: () => dispatch({
+    type: "@@sound/play/exportFinished",
+  }),
   imageAdded: payload => {
     dispatch(mainActions.imageAdded(payload))
   },

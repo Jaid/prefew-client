@@ -11,11 +11,19 @@ const renderSound = new Howl({
   volume: 0.05,
 })
 
+const exportFinishedSound = new Howl({
+  src: require("src/sounds/exportFinished.ogg"),
+  volume: 0.1,
+})
+
 export default store => next => action => {
   const {main} = store.getState()
   if (main.mode === "user") {
     if (action.type === "@@sound/play/startingRender") {
       startingRenderSound.play()
+    }
+    if (action.type === "@@sound/play/exportFinished") {
+      exportFinishedSound.play()
     }
     if (action.type === "@@main/newPreview") {
       renderSound.play()
