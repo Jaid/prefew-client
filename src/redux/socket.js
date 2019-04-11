@@ -9,7 +9,7 @@ const sendPrefix = "@@socket/send/"
 // const receivePrefix = "@@socket/received/"
 const connectEvent = "@@socket/connected"
 
-const socketClient = socketIoClient(`localhost:${port}`, {
+const socketClient = socketIoClient(`ws://localhost:${port}`, {
   query: {
     mode: query.mode,
   },
