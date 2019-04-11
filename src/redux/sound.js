@@ -25,7 +25,7 @@ export default store => next => action => {
     if (action.type === "@@sound/play/exportFinished") {
       exportFinishedSound.play()
     }
-    if (action.type === "@@main/newPreview") {
+    if (action.type === "@@sound/play/render") {
       renderSound.play()
     }
   }

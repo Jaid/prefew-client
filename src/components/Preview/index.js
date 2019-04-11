@@ -4,9 +4,15 @@ import classnames from "classnames"
 import {encode} from "base64-arraybuffer-es6"
 import arraybufferEqual from "arraybuffer-equal"
 import {isEqual} from "lodash"
+import {connect} from "react-redux"
 
 import css from "./style.scss"
 
+@connect(null, dispatch => ({
+  playSound: () => dispatch({
+    type: "@@sound/play/render",
+  }),
+}))
 export default class Preview extends React.Component {
 
   static propTypes = {
@@ -17,6 +23,7 @@ export default class Preview extends React.Component {
     mode: PropTypes.string.isRequired,
     presetOptions: PropTypes.object,
     presetSchema: PropTypes.object.isRequired,
+    playSound: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -29,20 +36,24 @@ export default class Preview extends React.Component {
       this.ref.current.addEventListener("animationend", () => {
         this.ref.current.classList.remove(css.animated)
       })
+    } else {
+      this.props.playSound()
     }
   }
 
   shouldComponentUpdate(nextProps) {
-    if (isEqual(this.props.presetOptions, nextProps.presetOptions) && arraybufferEqual(this.props.buffer, nextProps.buffer)) {
-      return false
+    if (!arraybufferEqual(this.props.buffer, nextProps.buffer)) {
+      if (this.props.mode !== "user") {
+        this.ref.current.classList.add(css.animated)
+      } else {
+        this.props.playSound()
+      }
+      return true
     }
-    return true
-  }
-
-  componentDidUpdate() {
-    if (this.props.mode !== "user") {
-      this.ref.current.classList.add(css.animated)
+    if (!isEqual(this.props.presetOptions, nextProps.presetOptions)) {
+      return true
     }
+    return false
   }
 
   render() {
