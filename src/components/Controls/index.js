@@ -26,6 +26,7 @@ export default class Controls extends React.Component {
       <form>
         <Field name="image" component={ImageSelect} className={css.imageSelect}/>
         <FieldArray name="presets" component={PresetControls}/>
+        <Field name="exportTitle" component="input" type="text"/>
         <ExportButton/>
       </form>
     </div>
