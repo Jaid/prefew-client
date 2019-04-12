@@ -32,7 +32,7 @@ export default class PresetControl extends React.Component {
 
     return <div className={classnames(css.container, this.props.className)}>
       <div className={css.presetName}>
-        {value.name}
+        {preset.title || value.name}
         <button className={css.removeButton} type="button" onClick={() => this.props.fields.remove(this.props.index)}>✕</button>
       </div>
       {optionFields}
