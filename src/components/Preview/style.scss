@@ -1,3 +1,11 @@
+.container>img {
+  margin: 1px;
+
+  &:hover {
+    outline: 1px solid gray;
+  }
+}
+
 .animated>.image {
   animation-duration: 0.4s;
   animation-timing-function: ease-in-out;
