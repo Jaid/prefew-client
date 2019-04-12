@@ -20,7 +20,7 @@
     "react-switch": "^4.1.0",
     "redux": "^4.0.1",
     "redux-action": "^1.2.2",
-    "redux-form": "^8.1.0",
+    "redux-form": "^8.2.0",
     "redux-thunk": "^2.3.0",
     "shortid": "^2.2.14",
     "socket.io-client": "^2.2.0"
