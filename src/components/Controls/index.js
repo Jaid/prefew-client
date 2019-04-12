@@ -7,6 +7,7 @@ import ImageSelect from "components/ImageSelect"
 import PresetControls from "components/PresetControls"
 import {reduxForm, FieldArray, Field} from "redux-form"
 import ExportButton from "components/ExportButton"
+import ExportTitleField from "components/ExportTitleField"
 
 import css from "./style.scss"
 
@@ -26,7 +27,7 @@ export default class Controls extends React.Component {
       <form>
         <Field name="image" component={ImageSelect} className={css.imageSelect}/>
         <FieldArray name="presets" component={PresetControls}/>
-        <Field name="exportTitle" component="input" type="text"/>
+        <ExportTitleField/>
         <ExportButton/>
       </form>
     </div>
