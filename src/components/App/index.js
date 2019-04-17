@@ -6,6 +6,7 @@ import Controls from "components/Controls"
 import classnames from "classnames"
 import {mapValues} from "lodash"
 import mainActions from "mainActions"
+import query from "src/query"
 
 import "rc-select/assets/index.css"
 import "./rc-select.scss"
@@ -54,7 +55,7 @@ export default class App extends React.Component {
     const previews = this.props.previewData.map(preview => <Preview key={preview.previewId} mode={this.props.mode} presetSchema={this.props.optionsMeta.presets[preview.presetName]} {...preview}/>)
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
       {this.props.mode === "user" && <Controls onChange={this.props.onControlsChange} className={css.controls} scheme={this.props.optionsMeta}/>}
-      <div className={css.previews}>{previews}</div>
+      <div className={classnames(css.previews, Boolean(query.previewsRight) && css.previewsRight)}>{previews}</div>
     </div>
   }
 
