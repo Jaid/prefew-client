@@ -47,10 +47,10 @@ export default class App extends React.Component {
 
   render() {
     if (this.props.connectionStatus !== "connected") {
-      return "Not connected."
+      return this.props.mode === "mirror" ? null : "Not connected."
     }
     if (!this.props.optionsMeta && this.props.mode === "user") {
-      return "Waiting for options."
+      return this.props.mode === "mirror" ? null : "Waiting for options."
     }
     const previews = this.props.previewData.map(preview => <Preview key={preview.previewId} mode={this.props.mode} presetSchema={this.props.optionsMeta.presets[preview.presetName]} {...preview}/>)
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
