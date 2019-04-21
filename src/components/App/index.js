@@ -53,9 +53,13 @@ export default class App extends React.Component {
       return this.props.mode === "mirror" ? null : "Waiting for options."
     }
     const previews = this.props.previewData.map(preview => <Preview key={preview.previewId} mode={this.props.mode} presetSchema={this.props.optionsMeta.presets[preview.presetName]} {...preview}/>)
+    const previewsContainerStyle = {}
+    if (query.previewsWidth) {
+      previewsContainerStyle.maxWidth = `${query.previewsWidth}px`
+    }
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
       {this.props.mode === "user" && <Controls onChange={this.props.onControlsChange} className={css.controls} scheme={this.props.optionsMeta}/>}
-      <div className={classnames(css.previews, Boolean(query.previewsRight) && css.previewsRight)}>{previews}</div>
+      <div style={previewsContainerStyle} className={classnames(css.previews, Boolean(query.previewsRight) && css.previewsRight)}>{previews}</div>
     </div>
   }
 
