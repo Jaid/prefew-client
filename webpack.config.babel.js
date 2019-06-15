@@ -1,8 +1,8 @@
 import path from "path"
 
-import {configureWebapp} from "webpack-config-jaid"
+import configure from "webpack-config-jaid"
 
-export default configureWebapp({
+export default configure({
   publishimo: {fetchGithub: true},
   extra: {
     resolve: {

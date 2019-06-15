@@ -1,5 +1,6 @@
 {
   "private": true,
+  "webpackConfigJaid": "INSERT",
   "version": "1.0.0",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
@@ -27,15 +28,14 @@
   },
   "devDependencies": {
     "@hot-loader/react-dom": "^16.8.6",
+    "acorn": "^6.1.1",
     "ajv": "^6.10.0",
     "babel-jest": "^24.8.0",
-    "babel-plugin-pkg": "^1.2.0",
     "babel-preset-jaid": "^6.6.0",
     "caniuse-lite": "^1.0.30000974",
     "eslint": "^5.16.0",
     "eslint-config-jaid-react": "^1.14.0",
     "jest": "^24.8.0",
-    "opn-cli": "^5.0.0",
     "react-hot-loader": "^4.11.0",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
