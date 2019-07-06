@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
-    "@babel/runtime": "^7.4.5",
+    "@babel/runtime": "^7.5.1",
     "arraybuffer-equal": "^1.0.4",
     "base64-arraybuffer-es6": "^0.5.0",
     "classnames": "^2.2.6",
@@ -31,16 +31,16 @@
     "acorn": "^6.2.0",
     "ajv": "^6.10.0",
     "babel-jest": "^24.8.0",
-    "babel-preset-jaid": "^6.8.0",
-    "caniuse-lite": "^1.0.30000979",
+    "babel-preset-jaid": "^6.8.1",
+    "caniuse-lite": "^1.0.30000980",
     "eslint": "^6.0.1",
     "eslint-config-jaid-react": "^1.18.0",
     "jest": "^24.8.0",
-    "react-hot-loader": "^4.12.2",
+    "react-hot-loader": "^4.12.3",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "rimraf": "^2.6.3",
-    "webpack-config-jaid": "^5.20.0"
+    "webpack-config-jaid": "^5.21.0"
   },
   "scripts": {
     "clean": "rimraf dist/ test/**/dist/",
