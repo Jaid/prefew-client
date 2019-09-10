@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "author": "Jaid <jaid.jsx@gmail.com> (https://github.com/Jaid)",
   "dependencies": {
-    "@babel/runtime": "^7.5.5",
+    "@babel/runtime": "^7.6.0",
     "arraybuffer-equal": "^1.0.4",
     "base64-arraybuffer-es6": "^0.5.0",
     "classnames": "^2.2.6",
@@ -12,7 +12,7 @@
     "howler": "^2.1.2",
     "immer": "^3.2.0",
     "modern-normalize": "^0.5.0",
-    "query-string": "^6.8.2",
+    "query-string": "^6.8.3",
     "rc-input-number": "^4.5.0",
     "rc-select": "^9.2.1",
     "react": "^16.9.0",
@@ -23,7 +23,7 @@
     "redux-action": "^1.2.2",
     "redux-form": "^8.2.6",
     "redux-thunk": "^2.3.0",
-    "shortid": "^2.2.14",
+    "shortid": "^2.2.15",
     "socket.io-client": "^2.2.0"
   },
   "devDependencies": {
@@ -31,16 +31,16 @@
     "acorn": "^7.0.0",
     "ajv": "^6.10.2",
     "babel-jest": "^24.9.0",
-    "babel-preset-jaid": "^6.9.1",
+    "babel-preset-jaid": "^6.9.4",
     "caniuse-lite": "^1.0.30000989",
-    "eslint": "^6.2.2",
-    "eslint-config-jaid-react": "^1.28.2",
+    "eslint": "^6.3.0",
+    "eslint-config-jaid-react": "^1.29.0",
     "jest": "^24.9.0",
     "react-hot-loader": "^4.12.12",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
     "rimraf": "^3.0.0",
-    "webpack-config-jaid": "^5.27.3"
+    "webpack-config-jaid": "^5.27.8"
   },
   "scripts": {
     "clean": "rimraf dist/ test/**/dist/",
