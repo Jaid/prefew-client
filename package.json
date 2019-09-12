@@ -34,7 +34,7 @@
     "babel-preset-jaid": "^6.10.0",
     "caniuse-lite": "^1.0.30000989",
     "eslint": "^6.3.0",
-    "eslint-config-jaid-react": "^1.29.0",
+    "eslint-config-jaid-react": "^1.30.0",
     "jest": "^24.9.0",
     "react-hot-loader": "^4.12.12",
     "redux-devtools-extension": "^2.13.8",
