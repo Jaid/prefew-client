@@ -20,7 +20,7 @@ export default class PresetControls extends React.Component {
 
   render() {
     const presetControls = this.props.fields.map((key, index, fields) => {
-      return <PresetControl scheme={this.props.optionsScheme} key={key} formKey={key} index={index} fields={fields}/>
+      return <PresetControl key={key} fields={fields} formKey={key} index={index} scheme={this.props.optionsScheme}/>
     })
     return <div className={classnames(css.container, this.props.className)}>
       Add preset

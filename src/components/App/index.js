@@ -58,8 +58,8 @@ export default class App extends React.Component {
       previewsContainerStyle.maxWidth = `${query.previewsWidth}px`
     }
     return <div className={classnames(css.container, css[`mode-${this.props.mode}`])}>
-      {this.props.mode === "user" && <Controls onChange={this.props.onControlsChange} className={css.controls} scheme={this.props.optionsMeta}/>}
-      <div style={previewsContainerStyle} className={classnames(css.previews, Boolean(query.previewsRight) && css.previewsRight)}>{previews}</div>
+      {this.props.mode === "user" && <Controls className={css.controls} scheme={this.props.optionsMeta} onChange={this.props.onControlsChange}/>}
+      <div className={classnames(css.previews, Boolean(query.previewsRight) && css.previewsRight)} style={previewsContainerStyle}>{previews}</div>
     </div>
   }
 

@@ -26,7 +26,7 @@ export default class ExportButton extends React.Component {
   }
 
   render() {
-    return <button type="button" disabled={!this.props.image || this.props.presets |> isEmpty} onClick={this.props.export}>Export</button>
+    return <button disabled={!this.props.image || this.props.presets |> isEmpty} type="button" onClick={this.props.export}>Export</button>
   }
 
 }

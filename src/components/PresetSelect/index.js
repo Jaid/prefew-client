@@ -21,9 +21,9 @@ export default class PresetSelect extends React.Component {
       return <Option key={name}>{properties.title}</Option>
     })
 
-    return <RcSelect value=""
+    return <RcSelect className={this.props.className}
       placeholder="Add preset"
-      className={this.props.className}
+      value=""
       onSelect={name => this.props.fields.push({
         name,
         options: mapValues(this.props.scheme[name].optionsSchema, ({defaultValue}) => defaultValue),

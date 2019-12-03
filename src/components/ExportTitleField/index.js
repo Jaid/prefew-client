@@ -17,7 +17,7 @@ export default class ExportTitleField extends React.Component {
   }
 
   render() {
-    return <Field name="exportTitle" placeholder={this.props.imageName} component="input" type="text"/>
+    return <Field component="input" name="exportTitle" placeholder={this.props.imageName} type="text"/>
   }
 
 }

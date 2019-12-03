@@ -31,7 +31,7 @@ export default class PresetOption extends React.Component {
       }
       input = <NumberInput defaultValue={this.props.defaultValue} {...inputProps} name={this.props.input.name} onChange={value => this.props.input.onChange(value)}/>
     } else if (this.props.type === "boolean") {
-      input = <Switch onChange={value => this.props.input.onChange(value)} checked={Boolean(this.props.input.value)}/>
+      input = <Switch checked={Boolean(this.props.input.value)} onChange={value => this.props.input.onChange(value)}/>
     } else {
       input = <input defaultValue={this.props.defaultValue} type="text"/>
     }
