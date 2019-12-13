@@ -1,18 +1,19 @@
-import React from "react"
-import PropTypes from "prop-types"
-import {connect} from "react-redux"
-import Preview from "components/Preview"
-import Controls from "components/Controls"
+import "rc-select/assets/index.css"
+import "./rc-select.scss"
+import "rc-input-number/assets/index.css"
+import "./rc-input-number.scss"
+
 import classnames from "classnames"
 import {mapValues} from "lodash"
 import mainActions from "mainActions"
+import PropTypes from "prop-types"
+import React from "react"
+import {connect} from "react-redux"
+
+import Controls from "components/Controls"
+import Preview from "components/Preview"
+
 import query from "src/query"
-
-import "rc-select/assets/index.css"
-import "./rc-select.scss"
-
-import "rc-input-number/assets/index.css"
-import "./rc-input-number.scss"
 
 import css from "./style.scss"
 

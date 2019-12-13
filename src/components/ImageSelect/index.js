@@ -1,9 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
-import {connect} from "react-redux"
-import RcSelect, {Option} from "rc-select"
-import classnames from "classnames"
 import {encode} from "base64-arraybuffer-es6"
+import classnames from "classnames"
+import PropTypes from "prop-types"
+import RcSelect, {Option} from "rc-select"
+import React from "react"
+import {connect} from "react-redux"
 
 import css from "./style.scss"
 
