@@ -1,7 +1,9 @@
 import {parse} from "query-string"
 
-const parsed = parse(document.location.search)
-export default {
+const defaults = {
   mode: "user",
-  ...parsed,
 }
+
+const parsed = parse(document.location.search)
+
+export default Object.assign(defaults, parsed)
