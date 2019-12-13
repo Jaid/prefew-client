@@ -1,9 +1,9 @@
-import React from "react"
-import PropTypes from "prop-types"
-import classnames from "classnames"
-import {encode} from "base64-arraybuffer-es6"
 import arraybufferEqual from "arraybuffer-equal"
+import {encode} from "base64-arraybuffer-es6"
+import classnames from "classnames"
 import {isEqual} from "lodash"
+import PropTypes from "prop-types"
+import React from "react"
 import {connect} from "react-redux"
 
 import css from "./style.scss"
@@ -13,7 +13,7 @@ import css from "./style.scss"
     type: "@@sound/play/render",
   }),
 }))
-export default class Preview extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,

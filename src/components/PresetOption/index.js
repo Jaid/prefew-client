@@ -1,12 +1,12 @@
-import React from "react"
-import PropTypes from "prop-types"
 import classnames from "classnames"
+import PropTypes from "prop-types"
 import NumberInput from "rc-input-number"
+import React from "react"
 import Switch from "react-switch"
 
 import css from "./style.scss"
 
-export default class PresetOption extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,

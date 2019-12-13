@@ -1,13 +1,14 @@
-import React from "react"
-import PropTypes from "prop-types"
 import classnames from "classnames"
+import PropTypes from "prop-types"
+import React from "react"
+import {Field, FieldArray, reduxForm} from "redux-form"
+
+import ExportButton from "components/ExportButton"
+import ExportTitleField from "components/ExportTitleField"
 import ImageSelect from "components/ImageSelect"
 // import PresetSelect from "components/PresetSelect"
 // import PresetOptions from "components/PresetOptions"
 import PresetControls from "components/PresetControls"
-import {reduxForm, FieldArray, Field} from "redux-form"
-import ExportButton from "components/ExportButton"
-import ExportTitleField from "components/ExportTitleField"
 
 import css from "./style.scss"
 
@@ -15,7 +16,7 @@ import css from "./style.scss"
   form: "controls",
   enableReinitialize: true,
 })
-export default class Controls extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,

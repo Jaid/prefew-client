@@ -10,7 +10,7 @@ import css from "./style.scss"
 @connect(({main}) => ({
   images: main.options.images,
 }))
-export default class ImageSelect extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,

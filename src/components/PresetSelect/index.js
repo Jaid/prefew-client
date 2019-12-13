@@ -1,14 +1,14 @@
-import React from "react"
-import PropTypes from "prop-types"
 import classnames from "classnames"
 import immer from "immer"
 import {mapValues} from "lodash"
+import PropTypes from "prop-types"
 import RcSelect, {Option} from "rc-select"
+import React from "react"
 import shortid from "shortid"
 
 import css from "./style.scss"
 
-export default class PresetSelect extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,

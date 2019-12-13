@@ -1,8 +1,8 @@
-import React from "react"
+import {isEmpty} from "lodash"
 import PropTypes from "prop-types"
+import React from "react"
 import {connect} from "react-redux"
 import {formValueSelector} from "redux-form"
-import {isEmpty} from "lodash"
 
 import css from "./style.scss"
 
@@ -16,7 +16,7 @@ const selector = formValueSelector("controls")
     type: "@@socket/send/export",
   }),
 }))
-export default class ExportButton extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,

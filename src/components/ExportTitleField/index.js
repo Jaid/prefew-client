@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
 import classnames from "classnames"
+import PropTypes from "prop-types"
+import React from "react"
 import {connect} from "react-redux"
 import {Field} from "redux-form"
 
@@ -9,7 +9,7 @@ import css from "./style.scss"
 @connect(({form}) => ({
   imageName: form.controls?.values?.image,
 }))
-export default class ExportTitleField extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,

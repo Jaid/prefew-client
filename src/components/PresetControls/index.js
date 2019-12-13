@@ -1,16 +1,17 @@
-import React from "react"
-import PropTypes from "prop-types"
 import classnames from "classnames"
+import PropTypes from "prop-types"
+import React from "react"
+import {connect} from "react-redux"
+
 import PresetControl from "components/PresetControl"
 import PresetSelect from "components/PresetSelect"
-import {connect} from "react-redux"
 
 import css from "./style.scss"
 
 @connect(({main}) => ({
   optionsScheme: main.options.presets,
 }))
-export default class PresetControls extends React.Component {
+export default class extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
