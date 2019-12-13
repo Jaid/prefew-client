@@ -2,7 +2,6 @@ import path from "path"
 import configure from "webpack-config-jaid"
 
 export default configure({
-  terserOptions: false,
   extra: {
     resolve: {
       alias: {
