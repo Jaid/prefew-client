@@ -4,8 +4,6 @@ import "rc-input-number/assets/index.css"
 import "./rc-input-number.scss"
 
 import classnames from "classnames"
-import {mapValues} from "lodash"
-import mainActions from "mainActions"
 import PropTypes from "prop-types"
 import React from "react"
 import {connect} from "react-redux"
@@ -17,20 +15,8 @@ import query from "src/query"
 
 import css from "./style.scss"
 
-@connect(({main, socket}) => ({
-  previewData: main.previews,
-  mode: main.mode,
-  optionsMeta: main.options,
-  selectedPreset: main.selectedPreset,
-  selectedImage: main.selectedImage,
-  connectionStatus: socket.status,
-}), dispatch => ({
-  onControlsChange: values => dispatch({
-    type: "@@socket/send/setOptions",
-    payload: values,
-  }),
-}))
-export default class App extends React.Component {
+
+class App extends React.Component {
 
   static propTypes = {
     previewData: PropTypes.array,
@@ -65,3 +51,17 @@ export default class App extends React.Component {
   }
 
 }
+
+export default connect(({main, socket}) => ({
+  previewData: main.previews,
+  mode: main.mode,
+  optionsMeta: main.options,
+  selectedPreset: main.selectedPreset,
+  selectedImage: main.selectedImage,
+  connectionStatus: socket.status,
+}), dispatch => ({
+  onControlsChange: values => dispatch({
+    type: "@@socket/send/setOptions",
+    payload: values,
+  }),
+}))(App)
