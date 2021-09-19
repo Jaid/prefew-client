@@ -56,5 +56,6 @@
     "type": "git",
     "url": "https://github.com/jaid/prefew-client"
   },
-  "name": "prefew-client"
+  "name": "prefew-client",
+  "type": "module"
 }
